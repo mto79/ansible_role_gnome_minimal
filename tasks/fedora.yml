@@ -34,3 +34,13 @@
     line: WaylandEnable=false
     state: present
   when: (gnome_minimal.wayland is defined) and (gnome_minimal.wayland|bool == False) 
+
+- name: Gnome Minimal - Install Spice Agents in case of VM
+  dnf:
+    name:
+      - spice-vdagent
+      - spice-server
+      - spice-glib
+      - spice-gtk
+    state: present    
+  when: (gnome_minimal_host is defined) and (gnome_minimal_host == 'vm') 
