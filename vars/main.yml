@@ -3,8 +3,7 @@
 # Author: MTO 
 # Description: Vars main file for ansible_role_gnome_minimal
 #
-gnome_minimal_host: 'vm' #bare or vm
-gnome_minimal_settings:
+gnome_minimal:
   wayland: False
   packages:
     - gnome-terminal
