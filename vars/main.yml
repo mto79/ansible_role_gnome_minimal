@@ -3,3 +3,5 @@
 # Author: MTO 
 # Description: Vars main file for ansible_role_gnome_minimal
 #
+gnome_minimal:
+  wayland: False
