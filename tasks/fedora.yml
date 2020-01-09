@@ -3,6 +3,11 @@
 # Author: MTO 
 # Description: Minimal installation of Gnome on Fedora.
 #
+- name: Gnome Minimal - Update all packages (Fedora)
+  dnf:
+    name: "*"
+    state: latest
+
 - name: Gnome Minimal - Install Gnome Minimal (Fedora)
   dnf:
     name:
@@ -33,7 +38,7 @@
     regexp: '^#WaylandEnable='
     line: WaylandEnable=false
     state: present
-  when: (gnome_minimal.wayland is defined) and (gnome_minimal.wayland|bool == False) 
+  when: gnome_minimal.wayland|bool == False 
 
 - name: Gnome Minimal - Install default packages (Fedora)
   dnf:

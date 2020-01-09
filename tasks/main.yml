@@ -5,7 +5,7 @@
 #
 - name: Gnome Minimal - Display system, os, version and release 
   debug: 
-    msg: "SYSTEM {{ inventory_hostname }} ROLE {{ ansible_virtualization_role }} | OS {{ ansible_distribution }} | VERSION {{ ansible_distribution_version }} | RELEASE {{ ansible_distribution_release }}"
+    msg: "SYSTEM {{ inventory_hostname }} | ROLE {{ ansible_virtualization_role }} | OS {{ ansible_distribution }} | VERSION {{ ansible_distribution_version }} | RELEASE {{ ansible_distribution_release }}"
 
 - name: Gnome Minimal - Include tasks for installation on Fedora 
   include_tasks: "fedora.yml" 
