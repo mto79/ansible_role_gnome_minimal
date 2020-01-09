@@ -35,6 +35,11 @@
     state: present
   when: (gnome_minimal.wayland is defined) and (gnome_minimal.wayland|bool == False) 
 
+- name: Gnome Minimal - Install default packages (Fedora)
+  dnf:
+    name: "{{ gnome_minimal.packages }}"
+    state: present   
+
 - name: Gnome Minimal - Install Spice Agents in case of VM
   dnf:
     name:
