@@ -4,7 +4,7 @@
 # Description: Vars main file for ansible_role_gnome_minimal
 #
 gnome_minimal:
-  wayland: True
+  wayland: False
   packages:
     - gnome-terminal
     - gnome-tweaks

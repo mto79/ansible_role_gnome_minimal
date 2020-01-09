@@ -11,5 +11,5 @@
   include_tasks: "fedora.yml" 
   when: ansible_distribution == "Fedora"
 
-#- name: Gnome Minimal - Unconditionally reboot
-#  reboot:
+- name: Gnome Minimal - Unconditionally reboot
+  reboot:
