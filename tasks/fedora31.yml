@@ -35,10 +35,12 @@
 - name: Gnome Minimal - Show Display Server Type (1)
   command: loginctl show-session 2 -p Type
   register: displayserver
+  ignore_errors: true
 
 - name: Gnome Minimal - Show Display Server Type (2) 
   debug: 
     msg: "{{ displayserver.stdout }}"
+  ignore_errors: true
 
 - name: Gnome Minimal - Disable Wayland (Fedora)
   lineinfile:
