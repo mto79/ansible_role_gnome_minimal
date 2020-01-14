@@ -32,16 +32,6 @@
   when: graphical.stdout != "active"
   ignore_errors: true   
 
-- name: Gnome Minimal - Show Display Server Type (1) (Fedora31)
-  command: echo $XDG_SESSION_TYPE 
-  register: displayserver
-  ignore_errors: true
-
-- name: Gnome Minimal - Show Display Server Type (2) (Fedora31)
-  debug: 
-    msg: "{{ displayserver.stdout }}"
-  ignore_errors: true
-
 - name: Gnome Minimal - Disable Wayland (Fedora31)
   lineinfile:
     path: /etc/gdm/custom.conf
