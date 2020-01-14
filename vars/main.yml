@@ -3,12 +3,3 @@
 # Author: MTO 
 # Description: Vars main file for ansible_role_gnome_minimal
 #
-gnome_minimal:
-  wayland: False
-  packages:
-    - gnome-terminal
-    - gnome-tweaks
-    - eog
-    - dconf-editor
-  fonts:
-    - adobe-source-code-pro-fonts

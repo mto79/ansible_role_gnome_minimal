@@ -1,0 +1,14 @@
+---
+# ansible_role_gnome_minimal/vars/fedora31.yml
+# Author: MTO 
+# Description: Vars fedora31 file for ansible_role_gnome_minimal
+#
+gnome_minimal:
+  wayland: False
+  packages:
+    - gnome-terminal
+    - gnome-tweaks
+    - eog
+    - dconf-editor
+  fonts:
+    - adobe-source-code-pro-font
