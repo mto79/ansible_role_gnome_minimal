@@ -1,48 +1,48 @@
 ---
-# ansible_role_gnome_minimal/tasks/fedora.yml
+# ansible_role_gnome_minimal/tasks/fedora31.yml
 # Author: MTO 
-# Description: Minimal installation of Gnome on Fedora.
+# Description: Minimal installation of Gnome on Fedora31.
 #
-- name: Gnome Minimal - Update all packages (Fedora)
+- name: Gnome Minimal - Update all packages (Fedora31)
   dnf:
     name: "*"
     state: latest
 
-- name: Gnome Minimal - Install Gnome Minimal (Fedora)
+- name: Gnome Minimal - Install Gnome Minimal (Fedora31)
   dnf:
     name:
       - gnome-shell
     state: present    
   
-- name: Gnome Minimal - Get default runlevel (Fedora)
+- name: Gnome Minimal - Get default runlevel (Fedora31)
   command: systemctl get-default
   register: runlevel
   
-- name: Gnome Minimal - Set graphical runlevel (Fedora)
+- name: Gnome Minimal - Set graphical runlevel (Fedora31)
   command: systemctl set-default graphical.target
   when: runlevel.stdout != "graphical.target"
   
-- name: Gnome Minimal - Is graphical currently active (Fedora)
+- name: Gnome Minimal - Is graphical currently active (Fedora31)
   command: systemctl is-active graphical.target
   ignore_errors: true
   register: graphical
   
-- name: Gnome Minimal - Switch to graphical runlevel (Fedora)
+- name: Gnome Minimal - Switch to graphical runlevel (Fedora31)
   command: systemctl isolate graphical.target
   when: graphical.stdout != "active"
   ignore_errors: true   
 
-- name: Gnome Minimal - Show Display Server Type (1)
+- name: Gnome Minimal - Show Display Server Type (1) (Fedora31)
   command: loginctl show-session 2 -p Type
   register: displayserver
   ignore_errors: true
 
-- name: Gnome Minimal - Show Display Server Type (2) 
+- name: Gnome Minimal - Show Display Server Type (2) (Fedora31)
   debug: 
     msg: "{{ displayserver.stdout }}"
   ignore_errors: true
 
-- name: Gnome Minimal - Disable Wayland (Fedora)
+- name: Gnome Minimal - Disable Wayland (Fedora31)
   lineinfile:
     path: /etc/gdm/custom.conf
     regexp: '^#WaylandEnable='
@@ -50,12 +50,12 @@
     state: present
   when: gnome_minimal.wayland|bool == False 
 
-- name: Gnome Minimal - Install default packages (Fedora)
+- name: Gnome Minimal - Install default packages (Fedora31)
   dnf:
     name: "{{ gnome_minimal.packages }}"
     state: present   
 
-- name: Gnome Minimal - Install Spice Agents in case of VM
+- name: Gnome Minimal - Install Spice Agents in case of VM (Fedora31)
   dnf:
     name:
       - spice-vdagent
