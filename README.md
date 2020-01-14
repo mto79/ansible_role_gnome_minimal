@@ -15,7 +15,7 @@ A description of the settable variables for this role should go here, including 
 
 gnome_minimal.wayland  => true or false determine if you want X11 or Wayland.
 gnome_minimal.packages => define the packages you want to start with.
-gnome_minimal.fonts
+gnome_minimal.fonts => define the fonts you want to start with.
 
 Dependencies
 ------------
