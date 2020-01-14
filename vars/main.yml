@@ -9,5 +9,6 @@ gnome_minimal:
     - gnome-terminal
     - gnome-tweaks
     - eog
+    - dconf-editor
   fonts:
     - adobe-source-code-pro-fonts

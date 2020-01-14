@@ -7,9 +7,8 @@
   debug: 
     msg: "SYSTEM {{ inventory_hostname }} | ROLE {{ ansible_virtualization_role }} | OS {{ ansible_distribution }} | VERSION {{ ansible_distribution_version }} | RELEASE {{ ansible_distribution_release }}"
 
-- name: Gnome Minimal - Include tasks for installation on Fedora 
-  include_tasks: "fedora.yml" 
-  when: ansible_distribution == "Fedora"
-
+- name: Gnome Minimal - Include tasks for OS-specific installation.
+  include_tasks: "{{ ansible_os_family | lower }}{{ ansible_distribution_version }).yml" 
+ 
 - name: Gnome Minimal - Unconditionally reboot
   reboot:
