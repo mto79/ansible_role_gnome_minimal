@@ -1,7 +1,7 @@
 Gnome Minimal
 =========
 
-A brief description of the role goes here.
+Installation of a minimanl version of Gnome. In fact pure the Gnome-Shell.
 
 Requirements
 ------------

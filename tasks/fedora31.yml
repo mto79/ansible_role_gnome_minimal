@@ -33,7 +33,7 @@
   ignore_errors: true   
 
 - name: Gnome Minimal - Show Display Server Type (1) (Fedora31)
-  command: loginctl show-session 2 -p Type
+  command: echo $XDG_SESSION_TYPE 
   register: displayserver
   ignore_errors: true
 
